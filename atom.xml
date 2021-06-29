@@ -42,35 +42,11 @@
   </entry>
   
   <entry>
-    <title>ps扣图片上的毛笔字</title>
-    <link href="https://lforx.cn/posts/2180175259/"/>
-    <id>https://lforx.cn/posts/2180175259/</id>
-    <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2021-06-29T08:58:52.758Z</updated>
-    
-    <content type="html"><![CDATA[<p>第一步，打开ps，双击灰色屏幕打开需要抠的毛笔字图片，把图层解锁（双击图层即可解锁）</p><p>第二步，点击- 通道栏，将任意图层拖拽到下边复制新图层（如图）</p><p>注意：黑白对比度越强烈的图层，对抠图效果越好</p><p>第三步，打开图像-调整-色阶，将小白块和小黑块往中间移动（如图），点击确定。这样做是为了增加黑白对比度，方便后面抠图</p><span id="more"></span><p>第四步，点击通道栏下方-将通道做为选区载入 按钮（如图），按住ctrl+shift+I 组合键进行反选</p><p>第五步，按住ctrl+c复制，然后新建图层，按住ctrl+v粘贴，即可把毛笔字单独抠出来</p><p>如果想再次移动毛笔字，按住ctrl键用鼠标点击图层小方框（如图所示），用移动工具可以移动到其他位置或者图片中。然后按 ctrl+D 组合键取消选区。</p><p><a href="herf=" https: jingyan.baidu.com article c843ea0b9e331077921e4a40.html"">参考文档</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;第一步，打开ps，双击灰色屏幕打开需要抠的毛笔字图片，把图层解锁（双击图层即可解锁）&lt;/p&gt;
-&lt;p&gt;第二步，点击- 通道栏，将任意图层拖拽到下边复制新图层（如图）&lt;/p&gt;
-&lt;p&gt;注意：黑白对比度越强烈的图层，对抠图效果越好&lt;/p&gt;
-&lt;p&gt;第三步，打开图像-调整-色阶，将小白块和小黑块往中间移动（如图），点击确定。这样做是为了增加黑白对比度，方便后面抠图&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="ps" scheme="https://lforx.cn/tags/ps/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hexo美化url</title>
     <link href="https://lforx.cn/posts/3632775017/"/>
     <id>https://lforx.cn/posts/3632775017/</id>
-    <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2021-06-29T09:42:12.164Z</updated>
+    <published>2021-06-29T02:00:00.000Z</published>
+    <updated>2021-06-29T09:50:35.461Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>hexo文章链接默认的生成规则是：<code>:year/:month/:day/:title</code></p><p>如果文章标题是中文的话，后面的 <code>title</code> 还会被 <code>urlencode</code> 变成一长串，非常不利于阅读，更不利于 <code>SEO</code></p></blockquote><p><strong>美化开始</strong></p><hr><p><strong>安装插件</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save  //在博客主页打开git bash</span><br></pre></td></tr></table></figure><p><strong>打开_config.yml，修改<code>permalink</code></strong></p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink.html</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  # 算法：crc16(default) and crc32</span><br><span class="line">  rep: dec    # 进制：dec(default) and hex</span><br></pre></td></tr></table></figure><blockquote><p><code>permalink: posts/:abbrlink.html</code>使用该写法可能会导致图片不显示问题，可参考<code>permalink: posts/:abbrlink/</code>写法。</p></blockquote><p><strong>参考算法</strong></p><table><thead><tr><th>算法</th><th>进制</th><th>结果</th></tr></thead><tbody><tr><td>crc16</td><td>hex</td><td><code>https://example.com/posts/3ab2.html</code></td></tr><tr><td>crc16</td><td>dec</td><td><code>https://example.com/posts/12768.html</code></td></tr><tr><td>crc32</td><td>hex</td><td><code>https://example.com/posts/9a8b6c4d.html</code></td></tr><tr><td>crc32</td><td>dec</td><td><code>https://example.com/posts/1690090958.html</code></td></tr></tbody></table><p><strong>验证</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -98,11 +74,35 @@
   </entry>
   
   <entry>
+    <title>hexo-theme-amazing主题设置为中文</title>
+    <link href="https://lforx.cn/posts/2360592034/"/>
+    <id>https://lforx.cn/posts/2360592034/</id>
+    <published>2021-06-29T00:30:00.000Z</published>
+    <updated>2021-06-29T09:50:00.854Z</updated>
+    
+    <content type="html"><![CDATA[<p>amazing基于Lcarus主题，将主题语言设置为中文，修改博客根目录下的_config.yml文件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">language: zh-CN</span><br><span class="line">theme: amazing</span><br></pre></td></tr></table></figure><p>再重新部署即可：</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;amazing基于Lcarus主题，将主题语言设置为中文，修改博客根目录下的_config.yml文件：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;language: zh-CN&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;theme: amazing&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;再重新部署即可：&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="amazing-plugns" scheme="https://lforx.cn/tags/amazing-plugns/"/>
+    
+  </entry>
+  
+  <entry>
     <title>hexo-theme-amazing文章置顶</title>
     <link href="https://lforx.cn/posts/3146531613/"/>
     <id>https://lforx.cn/posts/3146531613/</id>
-    <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2021-06-29T08:58:52.761Z</updated>
+    <published>2021-06-29T00:00:00.000Z</published>
+    <updated>2021-06-29T09:48:50.745Z</updated>
     
     <content type="html"><![CDATA[<h4 id="置顶设置"><a href="#置顶设置" class="headerlink" title="置顶设置"></a>置顶设置</h4><p>.md文章头部数据中加入top，top值越大越靠前，大于0显示置顶图标。</p><p>首先确认<code>hexo-generator-index</code>插件是否安装，无则安装。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm list hexo-generator-index</span><br></pre></td></tr></table></figure><p>修改依赖包中文件amazing/node_modules/hexo-generator-index/lib/generator.js如下：</p><span id="more"></span><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> pagination = <span class="built_in">require</span>(<span class="string">&#x27;hexo-pagination&#x27;</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">locals</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> config = <span class="built_in">this</span>.config;</span><br><span class="line">    <span class="keyword">var</span> posts = locals.posts;</span><br><span class="line">    posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a.top == <span class="literal">undefined</span>)&#123;</span><br><span class="line">            a.top = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(b.top == <span class="literal">undefined</span>)&#123;</span><br><span class="line">            b.top = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a.top == b.top)&#123;</span><br><span class="line">            <span class="keyword">return</span> b.date - a.date;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           <span class="keyword">return</span> b.top - a.top;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">var</span> paginationDir = config.pagination_dir || <span class="string">&#x27;page&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> pagination(<span class="string">&#x27;&#x27;</span>, posts, &#123;</span><br><span class="line">        <span class="attr">perPage</span>: config.index_generator.per_page,</span><br><span class="line">        <span class="attr">layout</span>: [<span class="string">&#x27;index&#x27;</span>, <span class="string">&#x27;archive&#x27;</span>],</span><br><span class="line">        <span class="attr">format</span>: paginationDir + <span class="string">&#x27;/%d/&#x27;</span>,</span><br><span class="line">        <span class="attr">data</span>: &#123;</span><br><span class="line">            <span class="attr">__index</span>: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -123,26 +123,26 @@
   </entry>
   
   <entry>
-    <title>amazing主题自定义</title>
-    <link href="https://lforx.cn/posts/2360592034/"/>
-    <id>https://lforx.cn/posts/2360592034/</id>
+    <title>ps扣图片上的毛笔字</title>
+    <link href="https://lforx.cn/posts/2180175259/"/>
+    <id>https://lforx.cn/posts/2180175259/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2021-06-29T08:58:52.762Z</updated>
+    <updated>2021-06-29T08:58:52.758Z</updated>
     
-    <content type="html"><![CDATA[<p>amazing基于Lcarus主题，将主题语言设置为中文，修改博客根目录下的_config.yml文件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">language: zh-CN</span><br><span class="line">theme: amazing</span><br></pre></td></tr></table></figure><p>再重新部署即可：</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>第一步，打开ps，双击灰色屏幕打开需要抠的毛笔字图片，把图层解锁（双击图层即可解锁）</p><p>第二步，点击- 通道栏，将任意图层拖拽到下边复制新图层（如图）</p><p>注意：黑白对比度越强烈的图层，对抠图效果越好</p><p>第三步，打开图像-调整-色阶，将小白块和小黑块往中间移动（如图），点击确定。这样做是为了增加黑白对比度，方便后面抠图</p><span id="more"></span><p>第四步，点击通道栏下方-将通道做为选区载入 按钮（如图），按住ctrl+shift+I 组合键进行反选</p><p>第五步，按住ctrl+c复制，然后新建图层，按住ctrl+v粘贴，即可把毛笔字单独抠出来</p><p>如果想再次移动毛笔字，按住ctrl键用鼠标点击图层小方框（如图所示），用移动工具可以移动到其他位置或者图片中。然后按 ctrl+D 组合键取消选区。</p><p><a href="herf=" https: jingyan.baidu.com article c843ea0b9e331077921e4a40.html"">参考文档</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;amazing基于Lcarus主题，将主题语言设置为中文，修改博客根目录下的_config.yml文件：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;language: zh-CN&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;theme: amazing&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;再重新部署即可：&lt;/p&gt;
+      &lt;p&gt;第一步，打开ps，双击灰色屏幕打开需要抠的毛笔字图片，把图层解锁（双击图层即可解锁）&lt;/p&gt;
+&lt;p&gt;第二步，点击- 通道栏，将任意图层拖拽到下边复制新图层（如图）&lt;/p&gt;
+&lt;p&gt;注意：黑白对比度越强烈的图层，对抠图效果越好&lt;/p&gt;
+&lt;p&gt;第三步，打开图像-调整-色阶，将小白块和小黑块往中间移动（如图），点击确定。这样做是为了增加黑白对比度，方便后面抠图&lt;/p&gt;
     
     </summary>
     
     
     
-      <category term="amazing-plugns" scheme="https://lforx.cn/tags/amazing-plugns/"/>
+      <category term="ps" scheme="https://lforx.cn/tags/ps/"/>
     
   </entry>
   
