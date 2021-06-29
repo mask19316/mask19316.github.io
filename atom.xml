@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lforx.cn/"/>
-  <updated>2021-06-29T09:39:42.852Z</updated>
+  <updated>2021-06-29T09:42:07.260Z</updated>
   <id>https://lforx.cn/</id>
   
   <author>
@@ -21,47 +21,15 @@
     <link href="https://lforx.cn/posts/1721053512/"/>
     <id>https://lforx.cn/posts/1721053512/</id>
     <published>2021-06-29T09:39:00.000Z</published>
-    <updated>2021-06-29T09:39:42.852Z</updated>
+    <updated>2021-06-29T09:42:07.260Z</updated>
     
-    <content type="html"><![CDATA[<p>安装了<code>hexo-abbrlink</code>后图片无法正常显示</p><p>图片插件用的是<code>hexo-aset-image</code></p><p>原<code>_config.yml</code>的<code>permalink</code>配置：</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink.html</span><br></pre></td></tr></table></figure><p>在<code>hexo g</code>后，文章连接被重定向，与图片位置不符</p><p>修改<code>_config.yml</code>后解决:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink/</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>安装了<code>hexo-abbrlink</code>后图片无法正常显示</p><p>图片插件用的是<code>hexo-aset-image</code></p><p>原<code>_config.yml</code>的<code>permalink</code>配置：</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink.html</span><br></pre></td></tr></table></figure><p>在<code>hexo g</code>后，文章连接被重定向，与图片位置不符</p><p>修改<code>_config.yml</code>后解决:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink/</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/he_han_san/article/details/102946783">参考连接</a></p>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;安装了&lt;code&gt;hexo-abbrlink&lt;/code&gt;后图片无法正常显示&lt;/p&gt;
 &lt;p&gt;图片插件用的是&lt;code&gt;hexo-aset-image&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;原&lt;code&gt;_config.yml&lt;/code&gt;的&lt;code&gt;permalink&lt;/code&gt;配置：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="blog" scheme="https://lforx.cn/categories/blog/"/>
-    
-    
-      <category term="Hexo-blog" scheme="https://lforx.cn/tags/Hexo-blog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo美化url</title>
-    <link href="https://lforx.cn/posts/12768/"/>
-    <id>https://lforx.cn/posts/12768/</id>
-    <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2021-06-29T09:37:50.081Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>hexo文章链接默认的生成规则是：<code>:year/:month/:day/:title</code></p><p>如果文章标题是中文的话，后面的 <code>title</code> 还会被 <code>urlencode</code> 变成一长串，非常不利于阅读，更不利于 <code>SEO</code></p></blockquote><p><strong>美化开始</strong></p><hr><p><strong>安装插件</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save  //在博客主页打开git bash</span><br></pre></td></tr></table></figure><p><strong>打开_config.yml，修改<code>permalink</code></strong></p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink.html</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  # 算法：crc16(default) and crc32</span><br><span class="line">  rep: dec    # 进制：dec(default) and hex</span><br></pre></td></tr></table></figure><blockquote><p><code>permalink: posts/:abbrlink.html</code>使用该写法可能会导致图片不显示问题，可参考<code>permalink: posts/:abbrlink/</code>写法。</p></blockquote><p><strong>参考算法</strong></p><table><thead><tr><th>算法</th><th>进制</th><th>结果</th></tr></thead><tbody><tr><td>crc16</td><td>hex</td><td><code>https://example.com/posts/3ab2.html</code></td></tr><tr><td>crc16</td><td>dec</td><td><code>https://example.com/posts/12768.html</code></td></tr><tr><td>crc32</td><td>hex</td><td><code>https://example.com/posts/9a8b6c4d.html</code></td></tr><tr><td>crc32</td><td>dec</td><td><code>https://example.com/posts/1690090958.html</code></td></tr></tbody></table><p><strong>验证</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;hexo文章链接默认的生成规则是：&lt;code&gt;:year/:month/:day/:title&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;如果文章标题是中文的话，后面的 &lt;code&gt;title&lt;/code&gt; 还会被 &lt;code&gt;urlencode&lt;/code&gt; 变成一长串，非常不利于阅读，更不利于 &lt;code&gt;SEO&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;美化开始&lt;/strong&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;安装插件&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-abbrlink --save  //在博客主页打开git bash&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;strong&gt;打开_config.yml，修改&lt;code&gt;permalink&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -94,6 +62,38 @@
     
     
       <category term="ps" scheme="https://lforx.cn/tags/ps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo美化url</title>
+    <link href="https://lforx.cn/posts/3632775017/"/>
+    <id>https://lforx.cn/posts/3632775017/</id>
+    <published>2021-06-28T16:00:00.000Z</published>
+    <updated>2021-06-29T09:42:12.164Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>hexo文章链接默认的生成规则是：<code>:year/:month/:day/:title</code></p><p>如果文章标题是中文的话，后面的 <code>title</code> 还会被 <code>urlencode</code> 变成一长串，非常不利于阅读，更不利于 <code>SEO</code></p></blockquote><p><strong>美化开始</strong></p><hr><p><strong>安装插件</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save  //在博客主页打开git bash</span><br></pre></td></tr></table></figure><p><strong>打开_config.yml，修改<code>permalink</code></strong></p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink.html</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  # 算法：crc16(default) and crc32</span><br><span class="line">  rep: dec    # 进制：dec(default) and hex</span><br></pre></td></tr></table></figure><blockquote><p><code>permalink: posts/:abbrlink.html</code>使用该写法可能会导致图片不显示问题，可参考<code>permalink: posts/:abbrlink/</code>写法。</p></blockquote><p><strong>参考算法</strong></p><table><thead><tr><th>算法</th><th>进制</th><th>结果</th></tr></thead><tbody><tr><td>crc16</td><td>hex</td><td><code>https://example.com/posts/3ab2.html</code></td></tr><tr><td>crc16</td><td>dec</td><td><code>https://example.com/posts/12768.html</code></td></tr><tr><td>crc32</td><td>hex</td><td><code>https://example.com/posts/9a8b6c4d.html</code></td></tr><tr><td>crc32</td><td>dec</td><td><code>https://example.com/posts/1690090958.html</code></td></tr></tbody></table><p><strong>验证</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;hexo文章链接默认的生成规则是：&lt;code&gt;:year/:month/:day/:title&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果文章标题是中文的话，后面的 &lt;code&gt;title&lt;/code&gt; 还会被 &lt;code&gt;urlencode&lt;/code&gt; 变成一长串，非常不利于阅读，更不利于 &lt;code&gt;SEO&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;美化开始&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;安装插件&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-abbrlink --save  //在博客主页打开git bash&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;打开_config.yml，修改&lt;code&gt;permalink&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo-blog" scheme="https://lforx.cn/categories/Hexo-blog/"/>
+    
+    
+      <category term="blog" scheme="https://lforx.cn/tags/blog/"/>
     
   </entry>
   
