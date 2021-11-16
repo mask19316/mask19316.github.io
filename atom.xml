@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>喜欢橘子汁</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://lforx.cn/"/>
+  <updated>2021-06-29T09:42:07.260Z</updated>
+  <id>https://lforx.cn/</id>
+  
+  <author>
+    <name>Jun</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo-abbrlink导致图片不能显示</title>
+    <link href="https://lforx.cn/posts/1721053512/"/>
+    <id>https://lforx.cn/posts/1721053512/</id>
+    <published>2021-06-29T09:39:00.000Z</published>
+    <updated>2021-06-29T09:42:07.260Z</updated>
+    
+    <content type="html"><![CDATA[<p>安装了<code>hexo-abbrlink</code>后图片无法正常显示</p><p>图片插件用的是<code>hexo-aset-image</code></p><p>原<code>_config.yml</code>的<code>permalink</code>配置：</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink.html</span><br></pre></td></tr></table></figure><p>在<code>hexo g</code>后，文章连接被重定向，与图片位置不符</p><p>修改<code>_config.yml</code>后解决:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink/</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/he_han_san/article/details/102946783">参考连接</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;安装了&lt;code&gt;hexo-abbrlink&lt;/code&gt;后图片无法正常显示&lt;/p&gt;
+&lt;p&gt;图片插件用的是&lt;code&gt;hexo-aset-image&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;原&lt;code&gt;_config.yml&lt;/code&gt;的&lt;code&gt;permalink&lt;/code&gt;配置：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo-blog" scheme="https://lforx.cn/categories/Hexo-blog/"/>
+    
+    
+      <category term="blog" scheme="https://lforx.cn/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo美化url</title>
+    <link href="https://lforx.cn/posts/3632775017/"/>
+    <id>https://lforx.cn/posts/3632775017/</id>
+    <published>2021-06-29T02:00:00.000Z</published>
+    <updated>2021-06-29T09:50:35.461Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>hexo文章链接默认的生成规则是：<code>:year/:month/:day/:title</code></p><p>如果文章标题是中文的话，后面的 <code>title</code> 还会被 <code>urlencode</code> 变成一长串，非常不利于阅读，更不利于 <code>SEO</code></p></blockquote><p><strong>美化开始</strong></p><hr><p><strong>安装插件</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save  //在博客主页打开git bash</span><br></pre></td></tr></table></figure><p><strong>打开_config.yml，修改<code>permalink</code></strong></p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink.html</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  # 算法：crc16(default) and crc32</span><br><span class="line">  rep: dec    # 进制：dec(default) and hex</span><br></pre></td></tr></table></figure><blockquote><p><code>permalink: posts/:abbrlink.html</code>使用该写法可能会导致图片不显示问题，可参考<code>permalink: posts/:abbrlink/</code>写法。</p></blockquote><p><strong>参考算法</strong></p><table><thead><tr><th>算法</th><th>进制</th><th>结果</th></tr></thead><tbody><tr><td>crc16</td><td>hex</td><td><code>https://example.com/posts/3ab2.html</code></td></tr><tr><td>crc16</td><td>dec</td><td><code>https://example.com/posts/12768.html</code></td></tr><tr><td>crc32</td><td>hex</td><td><code>https://example.com/posts/9a8b6c4d.html</code></td></tr><tr><td>crc32</td><td>dec</td><td><code>https://example.com/posts/1690090958.html</code></td></tr></tbody></table><p><strong>验证</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;hexo文章链接默认的生成规则是：&lt;code&gt;:year/:month/:day/:title&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果文章标题是中文的话，后面的 &lt;code&gt;title&lt;/code&gt; 还会被 &lt;code&gt;urlencode&lt;/code&gt; 变成一长串，非常不利于阅读，更不利于 &lt;code&gt;SEO&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;美化开始&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;安装插件&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-abbrlink --save  //在博客主页打开git bash&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;打开_config.yml，修改&lt;code&gt;permalink&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo-blog" scheme="https://lforx.cn/categories/Hexo-blog/"/>
+    
+    
+      <category term="blog" scheme="https://lforx.cn/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo-theme-amazing主题设置为中文</title>
+    <link href="https://lforx.cn/posts/2360592034/"/>
+    <id>https://lforx.cn/posts/2360592034/</id>
+    <published>2021-06-29T00:30:00.000Z</published>
+    <updated>2021-06-29T09:50:00.854Z</updated>
+    
+    <content type="html"><![CDATA[<p>amazing基于Lcarus主题，将主题语言设置为中文，修改博客根目录下的_config.yml文件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">language: zh-CN</span><br><span class="line">theme: amazing</span><br></pre></td></tr></table></figure><p>再重新部署即可：</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;amazing基于Lcarus主题，将主题语言设置为中文，修改博客根目录下的_config.yml文件：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;language: zh-CN&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;theme: amazing&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;再重新部署即可：&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="amazing-plugns" scheme="https://lforx.cn/tags/amazing-plugns/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo-theme-amazing文章置顶</title>
+    <link href="https://lforx.cn/posts/3146531613/"/>
+    <id>https://lforx.cn/posts/3146531613/</id>
+    <published>2021-06-29T00:00:00.000Z</published>
+    <updated>2021-06-29T09:48:50.745Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="置顶设置"><a href="#置顶设置" class="headerlink" title="置顶设置"></a>置顶设置</h4><p>.md文章头部数据中加入top，top值越大越靠前，大于0显示置顶图标。</p><p>首先确认<code>hexo-generator-index</code>插件是否安装，无则安装。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm list hexo-generator-index</span><br></pre></td></tr></table></figure><p>修改依赖包中文件amazing/node_modules/hexo-generator-index/lib/generator.js如下：</p><span id="more"></span><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> pagination = <span class="built_in">require</span>(<span class="string">&#x27;hexo-pagination&#x27;</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">locals</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> config = <span class="built_in">this</span>.config;</span><br><span class="line">    <span class="keyword">var</span> posts = locals.posts;</span><br><span class="line">    posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a.top == <span class="literal">undefined</span>)&#123;</span><br><span class="line">            a.top = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(b.top == <span class="literal">undefined</span>)&#123;</span><br><span class="line">            b.top = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a.top == b.top)&#123;</span><br><span class="line">            <span class="keyword">return</span> b.date - a.date;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           <span class="keyword">return</span> b.top - a.top;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">var</span> paginationDir = config.pagination_dir || <span class="string">&#x27;page&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> pagination(<span class="string">&#x27;&#x27;</span>, posts, &#123;</span><br><span class="line">        <span class="attr">perPage</span>: config.index_generator.per_page,</span><br><span class="line">        <span class="attr">layout</span>: [<span class="string">&#x27;index&#x27;</span>, <span class="string">&#x27;archive&#x27;</span>],</span><br><span class="line">        <span class="attr">format</span>: paginationDir + <span class="string">&#x27;/%d/&#x27;</span>,</span><br><span class="line">        <span class="attr">data</span>: &#123;</span><br><span class="line">            <span class="attr">__index</span>: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;置顶设置&quot;&gt;&lt;a href=&quot;#置顶设置&quot; class=&quot;headerlink&quot; title=&quot;置顶设置&quot;&gt;&lt;/a&gt;置顶设置&lt;/h4&gt;&lt;p&gt;.md文章头部数据中加入top，top值越大越靠前，大于0显示置顶图标。&lt;/p&gt;
+&lt;p&gt;首先确认&lt;code&gt;hexo-generator-index&lt;/code&gt;插件是否安装，无则安装。&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm list hexo-generator-index&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;修改依赖包中文件amazing/node_modules/hexo-generator-index/lib/generator.js如下：&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="blog" scheme="https://lforx.cn/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ps扣图片上的毛笔字</title>
+    <link href="https://lforx.cn/posts/2180175259/"/>
+    <id>https://lforx.cn/posts/2180175259/</id>
+    <published>2021-06-28T16:00:00.000Z</published>
+    <updated>2021-06-29T08:58:52.758Z</updated>
+    
+    <content type="html"><![CDATA[<p>第一步，打开ps，双击灰色屏幕打开需要抠的毛笔字图片，把图层解锁（双击图层即可解锁）</p><p>第二步，点击- 通道栏，将任意图层拖拽到下边复制新图层（如图）</p><p>注意：黑白对比度越强烈的图层，对抠图效果越好</p><p>第三步，打开图像-调整-色阶，将小白块和小黑块往中间移动（如图），点击确定。这样做是为了增加黑白对比度，方便后面抠图</p><span id="more"></span><p>第四步，点击通道栏下方-将通道做为选区载入 按钮（如图），按住ctrl+shift+I 组合键进行反选</p><p>第五步，按住ctrl+c复制，然后新建图层，按住ctrl+v粘贴，即可把毛笔字单独抠出来</p><p>如果想再次移动毛笔字，按住ctrl键用鼠标点击图层小方框（如图所示），用移动工具可以移动到其他位置或者图片中。然后按 ctrl+D 组合键取消选区。</p><p><a href="herf=" https: jingyan.baidu.com article c843ea0b9e331077921e4a40.html"">参考文档</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;第一步，打开ps，双击灰色屏幕打开需要抠的毛笔字图片，把图层解锁（双击图层即可解锁）&lt;/p&gt;
+&lt;p&gt;第二步，点击- 通道栏，将任意图层拖拽到下边复制新图层（如图）&lt;/p&gt;
+&lt;p&gt;注意：黑白对比度越强烈的图层，对抠图效果越好&lt;/p&gt;
+&lt;p&gt;第三步，打开图像-调整-色阶，将小白块和小黑块往中间移动（如图），点击确定。这样做是为了增加黑白对比度，方便后面抠图&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="ps" scheme="https://lforx.cn/tags/ps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VMware热添加硬盘</title>
+    <link href="https://lforx.cn/posts/2910231512/"/>
+    <id>https://lforx.cn/posts/2910231512/</id>
+    <published>2021-06-27T16:00:00.000Z</published>
+    <updated>2021-06-29T08:58:52.754Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="VMware热添加硬盘"><a href="#VMware热添加硬盘" class="headerlink" title="VMware热添加硬盘"></a>VMware热添加硬盘</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> cat /proc/scsi/scsi    <span class="comment"># 查看scsi的驱动号</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ls /sys/class/scsi_host/</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;- - -&quot;</span> &gt; /sys/class/scsi_host/host0/scan</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;- - -&quot;</span> &gt; /sys/class/scsi_host/host*/scan</span></span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;- - -&quot; &gt; /sys/class/scsi_host/host0/scan //这个 scan 属性支持以&quot;-&quot;作为通配符，如以下命令可以执行让整个 scsi_host 进行重新搜索，这个功能用于调试某些对热挺拔实现不 完善的 SCSI 驱动程序很有用</span><br><span class="line">host0处是host1，还是host2，取决于 cat /proc/scsi/scsi 之后的 scsi 驱动器的号</span><br></pre></td></tr></table></figure><span id="more"></span>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;VMware热添加硬盘&quot;&gt;&lt;a href=&quot;#VMware热添加硬盘&quot; class=&quot;headerlink&quot; title=&quot;VMware热添加硬盘&quot;&gt;&lt;/a&gt;VMware热添加硬盘&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; cat /proc/scsi/scsi    &lt;span class=&quot;comment&quot;&gt;# 查看scsi的驱动号&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; ls /sys/class/scsi_host/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;- - -&amp;quot;&lt;/span&gt; &amp;gt; /sys/class/scsi_host/host0/scan&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;- - -&amp;quot;&lt;/span&gt; &amp;gt; /sys/class/scsi_host/host*/scan&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;echo &amp;quot;- - -&amp;quot; &amp;gt; /sys/class/scsi_host/host0/scan //这个 scan 属性支持以&amp;quot;-&amp;quot;作为通配符，如以下命令可以执行让整个 scsi_host 进行重新搜索，这个功能用于调试某些对热挺拔实现不 完善的 SCSI 驱动程序很有用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;host0处是host1，还是host2，取决于 cat /proc/scsi/scsi 之后的 scsi 驱动器的号&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Linux" scheme="https://lforx.cn/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>复制一个文件到多个目录</title>
+    <link href="https://lforx.cn/posts/3077397386/"/>
+    <id>https://lforx.cn/posts/3077397386/</id>
+    <published>2021-06-20T16:00:00.000Z</published>
+    <updated>2021-06-29T08:58:52.753Z</updated>
+    
+    <content type="html"><![CDATA[<p>假如想要复制一个文件到多个文件夹中，可以使用<code>cp</code>命令、<code>echo</code>命令、管道、<code>xargs</code>命令一起使用：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># echo /usr/local/src/ /usr/src/ | xargs -n 1 cp -v /usr/local/src/test.sh</span><br><span class="line"># 将/usr/local/src/test.sh复制到/usr/local/src/和/usr/src/下</span><br></pre></td></tr></table></figure><p>将一个文件复制成多个文件</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># echo /usr/local/src/test&#123;1..10&#125;.txt | xargs -n 1 cp -v /usr/local/src/test.txt</span><br><span class="line"># 将/usr/local/src/test.txt复制成test1.txt..test10.txt</span><br></pre></td></tr></table></figure><p><code>-n 1</code>告诉xargs命令每个命令行最多使用一个参数，并发送到<code>cp</code>命令中</p><p><code>cp</code>复制文件命令</p><p><code>-v</code>启用详细模式来显示更多的复制细节</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># man cp</span><br><span class="line"># man echo</span><br><span class="line"># man xargs</span><br></pre></td></tr></table></figure><p>利用<a href="http://www.tecmint.com/progress-monitor-check-progress-of-linux-commands/">progress 命令</a>来帮助监控运行中的（cp、mv、dd、<a href="http://www.tecmint.com/18-tar-command-examples-in-linux/">tar</a> 等等）的进度。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;假如想要复制一个文件到多个文件夹中，可以使用&lt;code&gt;cp&lt;/code&gt;命令、&lt;code&gt;echo&lt;/code&gt;命令、管道、&lt;code&gt;xargs&lt;/code&gt;命令一起使用：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# echo /usr/local/src/ /usr/src/ | xargs -n 1 cp -v /usr/local/src/test.sh&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 将/usr/local/src/test.sh复制到/usr/local/src/和/usr/src/下&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;将一个文件复制成多个文件&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="运维" scheme="https://lforx.cn/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cut命令用法</title>
+    <link href="https://lforx.cn/posts/971963755/"/>
+    <id>https://lforx.cn/posts/971963755/</id>
+    <published>2021-04-22T16:00:00.000Z</published>
+    <updated>2021-06-29T08:58:52.752Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>语法</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cut OPTION... [FILE]...</span><br><span class="line">cut -[n]b file</span><br><span class="line">cut -c file</span><br><span class="line">cut -d[分隔符] -f[域] file</span><br></pre></td></tr></table></figure><h4 id="cut参数解释和用法"><a href="#cut参数解释和用法" class="headerlink" title="cut参数解释和用法"></a><strong>cut参数解释和用法</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-b ：以字节为单位进行分割。这些字节位置将忽略多字节字符边界，除非指定了 -n 标志。</span><br><span class="line">-c ：以字符为单位进行分割。</span><br><span class="line">-d ：自定义分隔符，默认为制表符。</span><br><span class="line">-f ：与-d一起使用，指定显示哪个区域，使用Tab作为默认的分隔符。</span><br><span class="line">-n ：取消分割多字节字符。仅和 -b 标志一起使用。如果字符的最后一个字节落在由 -b 标志的 List 参数指示的</span><br><span class="line">范围之内，该字符将被写出；否则，该字符将被排除</span><br><span class="line">--complement : 补充选中的部分，即反选。</span><br><span class="line">--output-delimiter : 修改输出时使用的分隔符。</span><br><span class="line">--only-delimited : 不输出不包含分隔符的列。</span><br></pre></td></tr></table></figure><span id="more"></span><h5 id="b"><a href="#b" class="headerlink" title="-b"></a><strong>-b</strong></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.剪切单个字节</span><br><span class="line"># cut -b 1 test1.txt  //剪切每一行的第1个字节</span><br><span class="line">2.剪切多个字节</span><br><span class="line"># -b 1,3,5  //剪切每一行第 1 3 5 个字符</span><br><span class="line"># -b 1-5    //剪切每一行第 1-5 个字符 </span><br><span class="line"># -b -5     //剪切每一行第 1-5 个字符</span><br><span class="line"># -b 3-     //剪切每一行第 3个字符以后的</span><br><span class="line"></span><br><span class="line">-b 只是针对字节进行裁剪，对一个汉字进行字节裁剪，得到的结果必然是乱码;</span><br><span class="line">若想使用 -b 命令对字节进行裁剪，那么则需要使用 -n 选项，此选项的作用是取消分割多字节字符。</span><br></pre></td></tr></table></figure><h5 id="c"><a href="#c" class="headerlink" title="-c"></a><strong>-c</strong></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cut -c 1 test2.txt</span><br><span class="line">cut -c 2 test2.txt</span><br><span class="line">cut -c 1-3 test2.txt </span><br><span class="line">-c 作用就是剪切字符，和上面的 -nb 有些类似</span><br></pre></td></tr></table></figure><h5 id="f"><a href="#f" class="headerlink" title="-f"></a><strong>-f</strong></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># cat /etc/passwd | head -n 3</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">bin:x:1:1:bin:/bin:/sbin/nologin</span><br><span class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</span><br><span class="line"># cat /etc/passwd | head -n 3 | cut -d : -f 1  //以&quot;:&quot;为分隔符，取第一部分[第一部分为分隔符左边]</span><br><span class="line">root</span><br><span class="line">bin</span><br><span class="line">daemon</span><br><span class="line">-b -c 只是针对于格式固定的数据中剪切，对于一些格式不固定的，就无法获取到我们想要的数据，因此便有了 -f 域的概念。</span><br></pre></td></tr></table></figure><h5 id="–complement"><a href="#–complement" class="headerlink" title="–complement"></a>–complement</h5><p><strong>补全选择的输出</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">要补全选择输出的字段（即反选），使用 --complement 选项。这一选项输出所有的字段，除了指定的字段。</span><br><span class="line">例：输出 /etc/passwd 文件中包含 /bin/bash 的行中除了第二个字段以外的所有字段：</span><br><span class="line">[root@localhost ~]# grep &quot;/bin/bash&quot; /etc/passwd</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">[root@localhost ~]# grep &quot;/bin/bash&quot; /etc/passwd| cut -d: -f2</span><br><span class="line">x</span><br><span class="line">[root@localhost ~]# grep &quot;/bin/bash&quot; /etc/passwd| cut -d: --complement -f2</span><br><span class="line">root:0:0:root:/root:/bin/bash</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure><h5 id="–output-delimiter"><a href="#–output-delimiter" class="headerlink" title="–output-delimiter"></a>–output-delimiter</h5><p><strong>指定输出的分隔符</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用 --output-delimiter 可以指定输出的分隔符。输入的分隔符由 -d 来指定，而输出分隔符和输入分隔符默认是一样的。</span><br></pre></td></tr></table></figure><p><strong>–only-delimited</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;语法&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cut OPTION... [FILE]...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cut -[n]b file&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cut -c file&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cut -d[分隔符] -f[域] file&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;cut参数解释和用法&quot;&gt;&lt;a href=&quot;#cut参数解释和用法&quot; class=&quot;headerlink&quot; title=&quot;cut参数解释和用法&quot;&gt;&lt;/a&gt;&lt;strong&gt;cut参数解释和用法&lt;/strong&gt;&lt;/h4&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;-b ：以字节为单位进行分割。这些字节位置将忽略多字节字符边界，除非指定了 -n 标志。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-c ：以字符为单位进行分割。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-d ：自定义分隔符，默认为制表符。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-f ：与-d一起使用，指定显示哪个区域，使用Tab作为默认的分隔符。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-n ：取消分割多字节字符。仅和 -b 标志一起使用。如果字符的最后一个字节落在由 -b 标志的 List 参数指示的&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;范围之内，该字符将被写出；否则，该字符将被排除&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--complement : 补充选中的部分，即反选。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--output-delimiter : 修改输出时使用的分隔符。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--only-delimited : 不输出不包含分隔符的列。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="linux - 运维" scheme="https://lforx.cn/tags/linux-%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux小技巧</title>
+    <link href="https://lforx.cn/posts/3659348374/"/>
+    <id>https://lforx.cn/posts/3659348374/</id>
+    <published>2021-04-19T16:00:00.000Z</published>
+    <updated>2021-06-30T07:41:06.689Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>安全擦除硬盘数据</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dd if=/dev/urandom of=/dev/sdb    //生成随机数写入sdb硬盘</span><br></pre></td></tr></table></figure><p><strong>查看某进程的运行时间</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ps -p 117279 -o etimes,etime</span><br><span class="line">ELAPSED     ELAPSED</span><br><span class="line">   2351       39:11</span><br><span class="line"># -o参数，指定只显示的某字段，etime获取该进程的运行时间，etimes为时间戳</span><br></pre></td></tr></table></figure><span id="more"></span><p><strong>时间戳转换</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ date -d@1606405921 &quot;+%Y-%m-%d %H:%M:%S&quot;</span><br><span class="line">2020-11-26 23:52:01</span><br><span class="line">$ date +%s</span><br><span class="line">1606405921</span><br></pre></td></tr></table></figure><p><strong>删除乱码文件</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ls -i</span><br><span class="line">33574982 init.sh  33607045 ?????????txt</span><br><span class="line">$ find . -inum 33607045 -exec rm &#123;&#125; \;</span><br><span class="line"># -inum 指定文件的 inode 号，找到后执行删除</span><br></pre></td></tr></table></figure><p><strong>Linux上获取本机公网IP</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl ip.sb</span><br><span class="line">$ curl ifconfig.xyz</span><br></pre></td></tr></table></figure><p><strong>历史命令使用技巧</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">!!  ：重复执行上条命令；</span><br><span class="line">!N  ：重复执行 history 历史中第 N 条命令，N 可以通过 history 查看；</span><br><span class="line">!pw ：重复执行最近一次，以pw开头的历史命令；</span><br><span class="line">!$  ：表示最近一次命令的最后一个参数，使用快捷键&quot;Esc + .&quot;或者&quot;alt + .&quot;；</span><br><span class="line">Ctrl + r ：搜索历史命令；</span><br><span class="line"></span><br><span class="line">不写入历史命令：</span><br><span class="line">$ export HISTCONTROL=ignorespace  //当前终端生效</span><br><span class="line">$ echo 1</span><br><span class="line">$  echo 2</span><br><span class="line">$ echo 3</span><br><span class="line">$ history | tail -n 4</span><br><span class="line">  130  export HISTCONTROL=ignorespace</span><br><span class="line">  131  echo 1</span><br><span class="line">  132  echo 3</span><br><span class="line">  133  history | tail -n 4</span><br><span class="line">$ echo HISTCONTROL=ignorespace &gt;&gt; ~/.bashrc</span><br><span class="line">// 当前用户的bash shell的bash信息,当该用户登录时以及每次打开新的shell时,该文件被读取.</span><br><span class="line">$ source ~/.bashrc</span><br><span class="line">// 刷新当前shell环境</span><br><span class="line">history选项:</span><br><span class="line">-d [num]：删除该编号的命令</span><br><span class="line">-c：清空命令</span><br><span class="line">-a：追加当前会话的历史命令至历史文件中去；</span><br><span class="line">-n：把文件历史命令加入到当前 history中</span><br><span class="line">-w：把当前shell 的history显示的追加到文件中</span><br><span class="line">-r：查看历史命令值：</span><br><span class="line">  HISTSIZE: 命令历史中可以保存的命令个数</span><br><span class="line">  HISTFILE: 命令历史文件</span><br><span class="line">  HISTFILESIZE: 命令历史文件可以保存的个数</span><br><span class="line">  HISTCONTROL : 控制命令历史的生成</span><br><span class="line">    igoredups  ：忽略记录重复的命令，连续相同的命令才叫重复的</span><br><span class="line">    ignorespace：不记录以空格开头的命令</span><br><span class="line">    ignoreboth ：同时具有上面两种特性</span><br></pre></td></tr></table></figure><p><strong>获取多天前的日期</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># date -d &#x27;-1 day ago&#x27; +%F   //获取一天之后的日期,以+%F格式，其他的类似</span><br><span class="line">eg:在linux环境下：</span><br><span class="line">x用数字代替，如果需要几天前的直接写正数，如果要几天后的日期直接写负数即可：</span><br><span class="line">date -d &quot;x days ago&quot; +%Y%m%d</span><br><span class="line"></span><br><span class="line">x用数字代替，如果需要几周前的直接写正数，如果要几周后的日期直接写负数即可：</span><br><span class="line">date -d &quot;x weeks ago&quot; +%Y%m%d</span><br><span class="line"></span><br><span class="line">x用数字代替，如果需要几年前的直接写正数，如果要几年后的日期直接写负数即可：</span><br><span class="line">date -d &quot;x years ago&quot; +%Y%m%d</span><br></pre></td></tr></table></figure><p><strong>批量压缩并删除源文件</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># find . -name &quot;*.log&quot; -type f -exec tar czf &#123;&#125;.tar.gz &#123;&#125; --remove-files &gt; /dev/null \;</span><br><span class="line">解压缩并删除压缩文件</span><br><span class="line"># find . -name &quot;*.tar.gz&quot; -type f -exec tar -zxvf &#123;&#125; \; -exec rm -rf &#123;&#125; \; &gt; /dev/null</span><br></pre></td></tr></table></figure><p><strong>while read line与for循环的区别</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while read line是一次性讲文件信息读入并按行赋值给变量line</span><br><span class="line">while中使用重定向将文件中所有信息读入并重定向给整个while语句中的line变量</span><br><span class="line">for循环时每次读取文件中以一个空格为分割符的字符串</span><br></pre></td></tr></table></figure><p><strong>linux 使用find命令查找包含某字符串的文件</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . | xargs grep -ri &quot;xxx&quot;  //查找当前目录下包含&quot;xxx&quot;字符串的文件</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;安全擦除硬盘数据&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ dd if=/dev/urandom of=/dev/sdb    //生成随机数写入sdb硬盘&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;查看某进程的运行时间&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ ps -p 117279 -o etimes,etime&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ELAPSED     ELAPSED&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   2351       39:11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# -o参数，指定只显示的某字段，etime获取该进程的运行时间，etimes为时间戳&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="运维" scheme="https://lforx.cn/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo + yilia主题修改网站图标</title>
+    <link href="https://lforx.cn/posts/3314146010/"/>
+    <id>https://lforx.cn/posts/3314146010/</id>
+    <published>2021-04-18T16:00:00.000Z</published>
+    <updated>2021-06-29T08:58:52.757Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、下载图标</p><p>2、将.ico图标放到themes/yilia/source/img文件夹下<span id="more"></span></p><p>3、找到hexo\themes\yilia\layout_partial\head.ejs，修改下面一段代码为</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.favicon)&#123; %&gt;</span><br><span class="line">    &lt;link rel=&quot;icon&quot; href=&quot;/img/favicon.ico&quot;&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure><p>4、检查</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1、下载图标&lt;/p&gt;
+&lt;p&gt;2、将.ico图标放到themes/yilia/source/img文件夹下&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="yilia" scheme="https://lforx.cn/tags/yilia/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo图片不显示</title>
+    <link href="https://lforx.cn/posts/1315565666/"/>
+    <id>https://lforx.cn/posts/1315565666/</id>
+    <published>2021-04-14T16:00:00.000Z</published>
+    <updated>2021-06-29T08:58:52.756Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hexo图片不显示和图片路径问题</p><h3 id="1、下载hexo-asset-image插件"><a href="#1、下载hexo-asset-image插件" class="headerlink" title="1、下载hexo-asset-image插件"></a>1、下载hexo-asset-image插件</h3><p>在Hexo根目录下打开git bash</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/7ym0n/hexo-asset-image --save</span><br></pre></td></tr></table></figure><span id="more"></span><h3 id="2、Typora图像路径设置"><a href="#2、Typora图像路径设置" class="headerlink" title="2、Typora图像路径设置"></a>2、Typora图像路径设置</h3><p><img src="/posts/1315565666/image-20210416170428546.png" alt="image-20210416170428546"></p><blockquote><p>插入图片时，图片文件保存路径: <code>./$&#123;filename&#125;</code> 即保存到与 当前正在编辑的文件名 相同的同级文件夹下</p></blockquote><h3 id="3、配置Hexo图片文件夹"><a href="#3、配置Hexo图片文件夹" class="headerlink" title="3、配置Hexo图片文件夹"></a>3、配置Hexo图片文件夹</h3><p>打开Hexo根目录下的<code>_config.yml</code>文件</p><p>搜索 <code>post_asset_folder</code>，<code>false</code> 改为 <code>true</code></p><p>修改后，每次 ‘hexo new page’ 生成新文章，都会在文章文件同级目录创建一个与文章文件名同名的文件夹。</p><blockquote><p>PS1：这被称为 <code>文章资源文件夹</code>, 参考官方文档：<a href="https://hexo.io/zh-cn/docs/asset-folders">https://hexo.io/zh-cn/docs/asset-folders</a></p></blockquote><blockquote><p>PS2：本地创建.md文件编辑文章，然后插入图片同样生效。</p></blockquote><h3 id="4、转换Typora图片路径插件"><a href="#4、转换Typora图片路径插件" class="headerlink" title="4、转换Typora图片路径插件"></a>4、转换Typora图片路径插件</h3><p>正在 <code>Typora</code>下使用 <code>![example](postname/example.jpg)</code>引用图片，享受实时预览，但需发布到 <code>Hexo</code>，使之发布后能正确加载我们的图片，还需要做以下转换:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![example](postname/example.jpg) --&gt; &#123;% asset_img example.jpg example %&#125;</span><br></pre></td></tr></table></figure><p>而这个转换我们需要在文章编译为html之前，在编译过程中转换为 这样的标签<code>&#123;% asset_img example.jpg example %&#125;</code></p><blockquote><p>PS: <a href="https://hexo.io/zh-cn/docs/asset-folders#相对路径引用的标签插件">Hexo官方文档 - 相对路径引用的标签插件</a></p></blockquote><p>打开_config.yml文件，修改下述内容</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure><h3 id="5、测试"><a href="#5、测试" class="headerlink" title="5、测试"></a>5、测试</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/qq_36408085/article/details/104117319?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-0&spm=1001.2101.3001.4242">参考文档1</a></p><p><a href="https://moeci.com/posts/hexo-typora/">参考文档2</a></p><p><a href="https://blog.csdn.net/z952957407/article/details/111642548?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_utm_term-4&spm=1001.2101.3001.4242">参考文档3</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hexo图片不显示和图片路径问题&lt;/p&gt;
+&lt;h3 id=&quot;1、下载hexo-asset-image插件&quot;&gt;&lt;a href=&quot;#1、下载hexo-asset-image插件&quot; class=&quot;headerlink&quot; title=&quot;1、下载hexo-asset-image插件&quot;&gt;&lt;/a&gt;1、下载hexo-asset-image插件&lt;/h3&gt;&lt;p&gt;在Hexo根目录下打开git bash&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install https://github.com/7ym0n/hexo-asset-image --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>yilia主题添加社交图标</title>
+    <link href="https://lforx.cn/posts/3934008348/"/>
+    <id>https://lforx.cn/posts/3934008348/</id>
+    <published>2021-04-14T16:00:00.000Z</published>
+    <updated>2021-06-29T08:58:52.760Z</updated>
+    
+    <content type="html"><![CDATA[<p>Yilia主题自带是社交图标比较少，记录一种不用 webpack 打包的方式，添加自己需要的社交图标。</p><h2 id="1、找到需要添加的图标素材"><a href="#1、找到需要添加的图标素材" class="headerlink" title="1、找到需要添加的图标素材"></a>1、找到需要添加的图标素材</h2><p><a href="https://www.iconfont.cn/">阿里巴巴矢量图标库</a>，图片或者svg文件</p><h2 id="2、打开-yilia-source-fonts-目录"><a href="#2、打开-yilia-source-fonts-目录" class="headerlink" title="2、打开 yilia\source\fonts 目录"></a>2、打开 <code>yilia\source\fonts</code> 目录</h2><p><img src="/posts/3934008348/image-20210416145338878.png" alt="image-20210416145338878"><span id="more"></span></p><p>找到这四个文件，先备份。</p><h2 id="3、打开百度字体编辑器"><a href="#3、打开百度字体编辑器" class="headerlink" title="3、打开百度字体编辑器"></a>3、打开<a href="https://kekee000.github.io/fonteditor/#">百度字体编辑器</a></h2><h2 id="4、新建项目、导入刚才的iconfont-xxxxx-svg和你找到的图标素材-图片或者svg等"><a href="#4、新建项目、导入刚才的iconfont-xxxxx-svg和你找到的图标素材-图片或者svg等" class="headerlink" title="4、新建项目、导入刚才的iconfont.xxxxx.svg和你找到的图标素材(图片或者svg等)"></a>4、新建项目、导入刚才的<code>iconfont.xxxxx.svg</code>和你找到的图标素材(图片或者svg等)</h2><p><img src="/posts/3934008348/image-20210416145752389.png" alt="image-20210416145752389"></p><h2 id="5、修改字形信息"><a href="#5、修改字形信息" class="headerlink" title="5、修改字形信息"></a>5、修改字形信息</h2><p>选中社交图标，点左上方的<code>字形信息</code></p><p><img src="/posts/3934008348/image-20210416150058135.png" alt="image-20210416150058135"></p><p>填好社交图标的<code>unicode</code>(注意格式，这里是$开头)和<code>命名</code>并记录下来，一会要用到。</p><h2 id="6、保存、下载项目"><a href="#6、保存、下载项目" class="headerlink" title="6、保存、下载项目"></a>6、保存、下载项目</h2><p><img src="/posts/3934008348/image-20210416150246186.png" alt="image-20210416150246186"></p><h2 id="7、替换文件"><a href="#7、替换文件" class="headerlink" title="7、替换文件"></a>7、替换文件</h2><p>解压后得到以下文件，只要这四个文件，把他们重命名为第2步里 <code>yilia\source\fonts</code> 目录的那4个同样后缀的文件，然后<strong>替换</strong>掉那4个文件。</p><p><img src="/posts/3934008348/image-20210416150401860.png" alt="image-20210416150401860"></p><h2 id="8、修改yilia-source目录下的main-xxxx-css文件"><a href="#8、修改yilia-source目录下的main-xxxx-css文件" class="headerlink" title="8、修改yilia\source目录下的main.xxxx.css文件"></a>8、修改<code>yilia\source</code>目录下的<code>main.xxxx.css</code>文件</h2><p>在末尾添加代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.icon-图标名:before&#123;content:&quot;图标unicode&quot;&#125;</span><br><span class="line">/* 之前的图标unicode，开头的$改成\,如 $E6C --&gt; \E6C */</span><br><span class="line">#header .header-nav .social a.图标名&#123;background:自定义颜色;border:3px solid 自定义颜色&#125;</span><br><span class="line">#header .header-nav .social a.图标名:hover&#123;border:3px solid 自定义颜色&#125;</span><br></pre></td></tr></table></figure><h2 id="9、重新部署"><a href="#9、重新部署" class="headerlink" title="9、重新部署"></a>9、重新部署</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure><p><a href="https://anyway521.gitee.io/post/e4525229.html">参考链接</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Yilia主题自带是社交图标比较少，记录一种不用 webpack 打包的方式，添加自己需要的社交图标。&lt;/p&gt;
+&lt;h2 id=&quot;1、找到需要添加的图标素材&quot;&gt;&lt;a href=&quot;#1、找到需要添加的图标素材&quot; class=&quot;headerlink&quot; title=&quot;1、找到需要添加的图标素材&quot;&gt;&lt;/a&gt;1、找到需要添加的图标素材&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.iconfont.cn/&quot;&gt;阿里巴巴矢量图标库&lt;/a&gt;，图片或者svg文件&lt;/p&gt;
+&lt;h2 id=&quot;2、打开-yilia-source-fonts-目录&quot;&gt;&lt;a href=&quot;#2、打开-yilia-source-fonts-目录&quot; class=&quot;headerlink&quot; title=&quot;2、打开 yilia\source\fonts 目录&quot;&gt;&lt;/a&gt;2、打开 &lt;code&gt;yilia\source\fonts&lt;/code&gt; 目录&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/posts/3934008348/image-20210416145338878.png&quot; alt=&quot;image-20210416145338878&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="yilia" scheme="https://lforx.cn/tags/yilia/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LVM磁盘初始化和扩缩容</title>
+    <link href="https://lforx.cn/posts/899539592/"/>
+    <id>https://lforx.cn/posts/899539592/</id>
+    <published>2021-04-13T16:00:00.000Z</published>
+    <updated>2021-06-29T08:58:52.749Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>新服务器LVM磁盘初始化，方便后期磁盘扩容</strong></p><h3 id="一、新磁盘初始化"><a href="#一、新磁盘初始化" class="headerlink" title="一、新磁盘初始化"></a>一、新磁盘初始化</h3><p>1、检查是否存在目录、检查存在且已挂载的磁盘、检查是否已存在的逻辑卷</p><p>2、磁盘初始化<span id="more"></span></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1.创建主分区，并修改文件系统为8e，LVM格式</span><br><span class="line">cat &gt;xxx.txt &lt;&lt;EOF</span><br><span class="line">n</span><br><span class="line">p</span><br><span class="line">l</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">t</span><br><span class="line">8e</span><br><span class="line"></span><br><span class="line">w</span><br><span class="line">EOF</span><br><span class="line">fdisk /dev/sdb &lt; xxx.txt</span><br><span class="line">2.刷新磁盘分区，并格式化创建的磁盘</span><br><span class="line">partprobe /dev/sdb</span><br><span class="line">mkfs.xfs /dev/sdb1</span><br></pre></td></tr></table></figure><p>3.创建物理卷</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data</span><br><span class="line">pvcreate -f /dev/sdb1</span><br></pre></td></tr></table></figure><p>4.创建卷组</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vgcreate VolGroup01 /dev/sdb1</span><br><span class="line">vgchange -ay VolGroup01</span><br></pre></td></tr></table></figure><p>5.创建逻辑卷</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lvcreate -l 100%VG -n LVdata VolGroup01</span><br></pre></td></tr></table></figure><p>6.格式化逻辑卷</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.xfs /dev/mapper/VolGroup01-LVdata</span><br></pre></td></tr></table></figure><p>7.挂载目录</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/mapper/VolGroup01-LVdata /data</span><br></pre></td></tr></table></figure><p>8.添加开机自动挂载</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;/dev/mapper/VolGroup01-LVdata /data xfs defaults 0 0&quot; &gt;&gt; /etc/fstab</span><br><span class="line">mount -a    # 刷新/etc/fastab表</span><br><span class="line">lsblk</span><br></pre></td></tr></table></figure><h3 id="二、LVM磁盘-扩-缩-容"><a href="#二、LVM磁盘-扩-缩-容" class="headerlink" title="二、LVM磁盘(扩/缩)容"></a>二、LVM磁盘(扩/缩)容</h3><h4 id="添加磁盘-热添加硬盘"><a href="#添加磁盘-热添加硬盘" class="headerlink" title="添加磁盘[热添加硬盘]"></a>添加磁盘[热添加硬盘]</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">添加：</span><br><span class="line">echo &quot;scsi add-single-device 0 0 1 0&quot; &gt;/proc/scsi/scsi</span><br><span class="line">移除：</span><br><span class="line">echo &quot;scsi remove-single-device 0 0 1 0&quot; &gt; /proc/scsi/scsi</span><br><span class="line"></span><br><span class="line">命令行解释：</span><br><span class="line">命令行中的 0 0 1 0 需要自行修改成相应的参数：</span><br><span class="line">0 : SCSI HBA ID    //主机 ID</span><br><span class="line">0 : SCSI Channel   //channel ID</span><br><span class="line">1 : SCSI ID        //target ID</span><br><span class="line">0 : LUN ID         //LUN ID</span><br><span class="line"></span><br><span class="line">添加也可以使用 echo &quot;- - -&quot; &gt; /sys/class/scsi_host/host2/scan</span><br><span class="line">&#x27;- - -&#x27;代表channel，target和LUN编号。以上命令会导致host2下所有channel，target以及可见LUN被扫描</span><br></pre></td></tr></table></figure><p>添加一块硬盘，通过 <strong>lsscsi</strong> 命令可以查看对应参数</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# lsscsi</span><br><span class="line">[0:0:0:0]    disk    VMware,  VMware Virtual S 1.0   /dev/sda </span><br><span class="line">[2:0:0:0]    cd/dvd  NECVMWar VMware IDE CDR10 1.00  /dev/sr0</span><br><span class="line">[root@localhost ~]# cat /proc/scsi/scsi </span><br><span class="line">Attached devices:</span><br><span class="line">Host: scsi0 Channel: 00 Id: 00 Lun: 00</span><br><span class="line">  Vendor: VMware,  Model: VMware Virtual S Rev: 1.0 </span><br><span class="line">  Type:   Direct-Access                    ANSI  SCSI revision: 02</span><br><span class="line">Host: scsi2 Channel: 00 Id: 00 Lun: 00</span><br><span class="line">  Vendor: NECVMWar Model: VMware IDE CDR10 Rev: 1.00</span><br><span class="line">  Type:   CD-ROM                           ANSI  SCSI revision: 05</span><br><span class="line"># 根据Host: scsi0的类型可以知道，scsi硬盘使用的总线是host0</span><br><span class="line">[root@localhost ~]# ls /sys/class/scsi_host/</span><br><span class="line">host0  host1  host2</span><br><span class="line">[root@localhost ~]# echo &quot;- - -&quot; &gt; /sys/class/scsi_host/host0/scan </span><br><span class="line">[root@localhost ~]# lsscsi</span><br><span class="line">[0:0:0:0]    disk    VMware,  VMware Virtual S 1.0   /dev/sda </span><br><span class="line">[0:0:1:0]    disk    VMware,  VMware Virtual S 1.0   /dev/sdb </span><br><span class="line">[2:0:0:0]    cd/dvd  NECVMWar VMware IDE CDR10 1.00  /dev/sr0 </span><br><span class="line"># 或者使用 echo &quot;scsi add-single-device 0 0 1 0&quot; &gt;/proc/scsi/scsi 也可以发现设备</span><br><span class="line">[root@localhost ~]# lsblk /dev/sdb</span><br><span class="line">NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sdb    8:16   0   5G  0 disk</span><br><span class="line">[root@localhost ~]# cat /proc/scsi/scsi</span><br><span class="line">Attached devices:</span><br><span class="line">Host: scsi0 Channel: 00 Id: 00 Lun: 00</span><br><span class="line">  Vendor: VMware,  Model: VMware Virtual S Rev: 1.0 </span><br><span class="line">  Type:   Direct-Access                    ANSI  SCSI revision: 02</span><br><span class="line">Host: scsi2 Channel: 00 Id: 00 Lun: 00</span><br><span class="line">  Vendor: NECVMWar Model: VMware IDE CDR10 Rev: 1.00</span><br><span class="line">  Type:   CD-ROM                           ANSI  SCSI revision: 05</span><br><span class="line">Host: scsi0 Channel: 00 Id: 01 Lun: 00</span><br><span class="line">  Vendor: VMware,  Model: VMware Virtual S Rev: 1.0 </span><br><span class="line">  Type:   Direct-Access                    ANSI  SCSI revision: 02</span><br></pre></td></tr></table></figure><h4 id="热移除硬盘"><a href="#热移除硬盘" class="headerlink" title="热移除硬盘"></a>热移除硬盘</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# echo &quot;scsi remove-single-device 0 0 1 0&quot; &gt;/proc/scsi/scsi</span><br><span class="line">[root@localhost ~]# lsscsi</span><br><span class="line">[0:0:0:0]    disk    VMware,  VMware Virtual S 1.0   /dev/sda </span><br><span class="line">[2:0:0:0]    cd/dvd  NECVMWar VMware IDE CDR10 1.00  /dev/sr0</span><br><span class="line">[root@localhost ~]# cat /proc/scsi/scsi</span><br><span class="line">Attached devices:</span><br><span class="line">Host: scsi0 Channel: 00 Id: 00 Lun: 00</span><br><span class="line">  Vendor: VMware,  Model: VMware Virtual S Rev: 1.0 </span><br><span class="line">  Type:   Direct-Access                    ANSI  SCSI revision: 02</span><br><span class="line">Host: scsi2 Channel: 00 Id: 00 Lun: 00</span><br><span class="line">  Vendor: NECVMWar Model: VMware IDE CDR10 Rev: 1.00</span><br><span class="line">  Type:   CD-ROM                           ANSI  SCSI revision: 05</span><br></pre></td></tr></table></figure><h4 id="磁盘扩容"><a href="#磁盘扩容" class="headerlink" title="磁盘扩容"></a>磁盘扩容</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure><h4 id="磁盘缩容"><a href="#磁盘缩容" class="headerlink" title="磁盘缩容"></a>磁盘缩容</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure><p><a href="https://blog.51cto.com/u_1012682/2360215">参考文档1</a></p><p><a href="https://blog.csdn.net/weixin_48356255/article/details/108582027?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control&dist_request_id=1331988.11631.16188220037013113&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control">参考文档2</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;新服务器LVM磁盘初始化，方便后期磁盘扩容&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;一、新磁盘初始化&quot;&gt;&lt;a href=&quot;#一、新磁盘初始化&quot; class=&quot;headerlink&quot; title=&quot;一、新磁盘初始化&quot;&gt;&lt;/a&gt;一、新磁盘初始化&lt;/h3&gt;&lt;p&gt;1、检查是否存在目录、检查存在且已挂载的磁盘、检查是否已存在的逻辑卷&lt;/p&gt;
+&lt;p&gt;2、磁盘初始化&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="运维" scheme="https://lforx.cn/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>春赏百花冬观雪，醒亦念卿，梦亦念卿</title>
+    <link href="https://lforx.cn/posts/1725941556/"/>
+    <id>https://lforx.cn/posts/1725941556/</id>
+    <published>2020-03-10T16:00:00.000Z</published>
+    <updated>2021-06-29T08:58:52.747Z</updated>
+    
+    <content type="html"><![CDATA[<p>浮世万千，吾爱有三：日，月，卿</p><p>I love three things in the world sun,moon,and you</p><p>日为朝，月为暮，卿为朝朝暮暮。</p><p>sun for moring moon for night and you forever.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;浮世万千，吾爱有三：日，月，卿&lt;/p&gt;
+&lt;p&gt;I love three things in the world sun,moon,and you&lt;/p&gt;
+&lt;p&gt;日为朝，月为暮，卿为朝朝暮暮。&lt;/p&gt;
+&lt;p&gt;sun for moring moon for night and 
+      
+    
+    </summary>
+    
+    
+    
+      <category term="tips" scheme="https://lforx.cn/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>喜欢橘子汁~</title>
+    <link href="https://lforx.cn/posts/3352027318/"/>
+    <id>https://lforx.cn/posts/3352027318/</id>
+    <published>2020-03-09T16:00:00.000Z</published>
+    <updated>2021-06-29T08:58:52.746Z</updated>
+    
+    <content type="html"><![CDATA[<p>喜欢橘子汁…</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;喜欢橘子汁…&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="tips" scheme="https://lforx.cn/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello Hexo</title>
+    <link href="https://lforx.cn/posts/2708806665/"/>
+    <id>https://lforx.cn/posts/2708806665/</id>
+    <published>2020-02-29T16:00:00.000Z</published>
+    <updated>2021-06-29T08:58:52.745Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><span id="more"></span><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Hello Hexo" scheme="https://lforx.cn/tags/Hello-Hexo/"/>
+    
+  </entry>
+  
+</feed>
